@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Jawad.Data.Entities
+namespace Jawad.Core.Domains
 {
     public class Brewer
     {

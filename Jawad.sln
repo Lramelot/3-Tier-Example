@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jawad.Service", "Jawad.Serv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jawad.Data", "Jawad.Data\Jawad.Data.csproj", "{E045C1E4-2AA2-4837-B0CE-E5F04D60BD28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jawad.Core", "Jawad.Core\Jawad.Core.csproj", "{5AAECA44-5E99-4FCE-A2E5-DF4690603DBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{E045C1E4-2AA2-4837-B0CE-E5F04D60BD28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E045C1E4-2AA2-4837-B0CE-E5F04D60BD28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E045C1E4-2AA2-4837-B0CE-E5F04D60BD28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AAECA44-5E99-4FCE-A2E5-DF4690603DBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AAECA44-5E99-4FCE-A2E5-DF4690603DBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AAECA44-5E99-4FCE-A2E5-DF4690603DBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AAECA44-5E99-4FCE-A2E5-DF4690603DBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

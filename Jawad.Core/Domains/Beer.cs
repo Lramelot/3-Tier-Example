@@ -1,4 +1,4 @@
-﻿namespace Jawad.Data.Entities
+﻿namespace Jawad.Core.Domains
 {
     public class Beer
     {

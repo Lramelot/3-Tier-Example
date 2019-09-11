@@ -1,4 +1,4 @@
-﻿using Jawad.Data.Entities;
+﻿using Jawad.Core.Domains;
 using Microsoft.EntityFrameworkCore;
 
 namespace Jawad.Data
