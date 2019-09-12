@@ -40,5 +40,11 @@ namespace Jawad.Service.Brewers.Services
 
             return brewer;
         }
+
+        public Brewer GetOne(int id)
+        {
+            var brewer = _brewerRepository.FindById(id);
+            return brewer;
+        }
     }
 }

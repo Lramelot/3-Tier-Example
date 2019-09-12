@@ -1,14 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Jawad.Core.Domains;
-using Jawad.Service.Beers.Services.Interfaces;
 using Jawad.Service.Brewers.Commands;
 using Jawad.Service.Brewers.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Jawad.Web.Controllers
 {
-    public class BrewersController : Controller
+    [Route("api")]
+    [ApiController]
+    public class BrewersController : ControllerBase
     {
         private readonly IBrewerService _brewerService;
 
@@ -17,17 +17,24 @@ namespace Jawad.Web.Controllers
             _brewerService = brewerService;
         }
 
-        [Route("brewers")]
         [HttpGet]
+        [Route("brewers")]
         public ActionResult<IEnumerable<Brewer>> GetAll()
         {
             var brewers = _brewerService.GetAll();
-
             return Ok(brewers);
         }
 
-        [Route("brewers")]
+        [HttpGet]
+        [Route("brewers/{id}")]
+        public ActionResult<IEnumerable<Brewer>> GetOne(int id)
+        {
+            var brewer = _brewerService.GetOne(id);
+            return Ok(brewer);
+        }
+
         [HttpPost]
+        [Route("brewers")]
         public ActionResult<Brewer> Create(CreateBrewerCommand command)
         {
             var brewer = _brewerService.Create(command);

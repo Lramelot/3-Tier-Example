@@ -8,5 +8,6 @@ namespace Jawad.Service.Brewers.Services.Interfaces
     {
         IEnumerable<Brewer> GetAll();
         Brewer Create(CreateBrewerCommand command);
+        Brewer GetOne(int id);
     }
 }

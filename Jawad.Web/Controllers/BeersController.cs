@@ -5,7 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Jawad.Web.Controllers
 {
-    public class BeersController : Controller
+    [Route("api")]
+    [ApiController]
+    public class BeersController : ControllerBase
     {
         private readonly IBeerService _beerService;
 
@@ -14,8 +16,8 @@ namespace Jawad.Web.Controllers
             _beerService = beerService;
         }
 
-        [Route("brewers/{id}/beers")]
         [HttpPost]
+        [Route("brewers/{id:int}/beers")]
         public ActionResult<Beer> CreateBeer([FromRoute] int id, [FromBody] CreateBeerCommand command)
         {
             command.BrewerId = id;

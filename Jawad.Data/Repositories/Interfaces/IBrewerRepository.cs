@@ -7,5 +7,6 @@ namespace Jawad.Data.Repositories.Interfaces
     {
         IEnumerable<Brewer> GetAll();
         void Create(Brewer brewer);
+        Brewer FindById(int id);
     }
 }
