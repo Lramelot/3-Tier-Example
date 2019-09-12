@@ -1,29 +1,25 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Jawad.Core.Domains;
-using Jawad.Data.Repositories.Interfaces;
-using Jawad.Data.UnitOfWork;
+using Jawad.Data;
 using Jawad.Service.Brewers.Commands;
 using Jawad.Service.Brewers.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Jawad.Service.Brewers.Services
 {
     public class BrewerService : IBrewerService
     {
-        private readonly IBrewerRepository _brewerRepository;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly BeersContext _beersContext;
 
-        public BrewerService(
-            IBrewerRepository brewerRepository,
-            IUnitOfWork unitOfWork
-        )
+        public BrewerService(BeersContext beersContext)
         {
-            _brewerRepository = brewerRepository;
-            _unitOfWork = unitOfWork;
+            _beersContext = beersContext;
         }
 
         public IEnumerable<Brewer> GetAll()
         {
-            var brewers = _brewerRepository.GetAll();
+            var brewers = _beersContext.Brewers.ToList();
             return brewers;
         }
 
@@ -35,15 +31,19 @@ namespace Jawad.Service.Brewers.Services
                 City = command.City
             };
 
-            _brewerRepository.Create(brewer);
-            _unitOfWork.SaveChanges();
+            _beersContext.Brewers.Add(brewer);
+            _beersContext.SaveChanges();
 
             return brewer;
         }
 
         public Brewer GetOne(int id)
         {
-            var brewer = _brewerRepository.FindById(id);
+            var brewer = _beersContext
+                .Brewers
+                .Include(b => b.Beers)
+                .First(b => b.Id == id);
+
             return brewer;
         }
     }

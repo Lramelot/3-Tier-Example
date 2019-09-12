@@ -1,7 +1,4 @@
 ﻿using Jawad.Data;
-using Jawad.Data.Repositories;
-using Jawad.Data.Repositories.Interfaces;
-using Jawad.Data.UnitOfWork;
 using Jawad.Service.Beers.Services;
 using Jawad.Service.Beers.Services.Interfaces;
 using Jawad.Service.Brewers.Services;
@@ -36,12 +33,7 @@ namespace Jawad.Web
 
             var connection = @"Server=(localdb)\mssqllocaldb;Database=BeersDatabase;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<BeersContext>(options => options.UseSqlServer(connection));
-
-            // Data
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<IBeerRepository, BeerRepository>();
-            services.AddScoped<IBrewerRepository, BrewerRepository>();
-
+            
             // Services
             services.AddScoped<IBrewerService, BrewerService>();
             services.AddScoped<IBeerService, BeerService>();
